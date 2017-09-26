@@ -1,6 +1,6 @@
-var MongoClient = require('mongodb').MongoClient;
+/* var MongoClient = require('mongodb').MongoClient;
 
-var servidor = 'mongodb://localhost:27017/db_devmedia';
+var servidor = 'mongodb://localhost:27017/NodeFinancas';
 
 MongoClient.connect(servidor, function(erro, db){
     if(erro){
@@ -9,7 +9,7 @@ MongoClient.connect(servidor, function(erro, db){
         console.log("Conexão estabelecida com sucesso!");
     }
 
-/*     var topico = {
+     var topico = {
         titulo : "Erro na compilação",
         conteudo : "Não consigo compilar meu projeto",
         tags : ["Java", "Android", "Mobile"]
@@ -23,9 +23,9 @@ MongoClient.connect(servidor, function(erro, db){
         } else {
             console.log("Documento inserido com sucesso!");
         }
-    }); */
+    }); 
 
-/*     var usuarios = [
+    var usuarios = [
         { login : "thomas", senha : "123"},
         { login : "vinicius", senha : "456"},
         { login : "hallef", senha : "789"}        
@@ -39,9 +39,9 @@ MongoClient.connect(servidor, function(erro, db){
         } else {
             console.log(resultado.insertedCount + " documentos inseridos com sucesso!");
         }
-    }) */
+    }) 
 
-/*     var usuario = {
+     var usuario = {
         login : "maria",
         senha : "123456789"
     };
@@ -56,9 +56,9 @@ MongoClient.connect(servidor, function(erro, db){
         else
             console.log("Documento atualizado com sucesso!");
     });
-     */
+     
 
-/*     var colecao = db.collection("usuarios");
+     var colecao = db.collection("usuarios");
 
     var filtro = { };
 
@@ -69,9 +69,9 @@ MongoClient.connect(servidor, function(erro, db){
             console.log("Erro ao atualizar documentos: " + erro);
         else
             console.log("Documentos atualizados com sucesso!");
-    }); */
+    }); 
 
-    /* var colecao = db.collection("usuarios");
+     var colecao = db.collection("usuarios");
 
     var filtro = { login : "joel"};
 
@@ -80,9 +80,9 @@ MongoClient.connect(servidor, function(erro, db){
             console.log("Erro ao remover documento: " + erro);
         else
             console.log("Documento removido com sucesso!");
-    });     */
+    });     
 
-/*     var colecao = db.collection("usuarios");
+     var colecao = db.collection("usuarios");
     
     var filtro = { ativo : true };
 
@@ -91,15 +91,15 @@ MongoClient.connect(servidor, function(erro, db){
             console.log("Erro ao remover documentos: " + erro);
         else
             console.log(resultado.deletedCount + " Documentos removidos com sucesso!");
-    });    */
+    });    
     
-/*     var colecao = db.collection("topicos");
+     var colecao = db.collection("topicos");
     
     var filtro = { };
 
     colecao.find(filtro).toArray(function(erro, documentos){
         console.log(documentos);
-    });   */ 
+    });  
 
     var colecao = db.collection("topicos");
     
@@ -116,4 +116,16 @@ MongoClient.connect(servidor, function(erro, db){
     });       
 
     db.close;
+}); */
+
+
+var express = require('express');
+var app = express();
+
+app.get("/user", function(req, res) {
+    res.send("hello world! " + req.query.id + " e " + req.query.nome);
 });
+
+app.listen(3000);
+
+
