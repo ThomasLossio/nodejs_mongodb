@@ -1,4 +1,4 @@
-/* var MongoClient = require('mongodb').MongoClient;
+ var MongoClient = require('mongodb').MongoClient;
 
 var servidor = 'mongodb://localhost:27017/NodeFinancas';
 
@@ -9,7 +9,7 @@ MongoClient.connect(servidor, function(erro, db){
         console.log("Conexão estabelecida com sucesso!");
     }
 
-     var topico = {
+/*  var topico = {
         titulo : "Erro na compilação",
         conteudo : "Não consigo compilar meu projeto",
         tags : ["Java", "Android", "Mobile"]
@@ -114,9 +114,9 @@ MongoClient.connect(servidor, function(erro, db){
             console.log("...");
         }, this);        
     });       
-
+*/
     db.close;
-}); */
+}); 
 
 
 var express = require('express');
