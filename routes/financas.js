@@ -6,6 +6,8 @@ module.exports = function(app) {
     //   res.render('index', {'session': req.session, "nweets": nweets});
       
     // });
-    
+    //res.send("hello world! Financas " + req.query.id);
+    res.json({message: "Funcionando!", id: parseInt(req.query.id), teste: true});
+    //console.log("oi");
   });
 }

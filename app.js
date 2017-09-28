@@ -120,12 +120,23 @@ MongoClient.connect(servidor, function(erro, db){
 
 
 var express = require('express');
+var http = require('http');
+var load = require('express-load');
 var app = express();
 
-app.get("/user", function(req, res) {
-    res.send("hello world! " + req.query.id + " e " + req.query.nome);
+app.set('port', process.env.PORT || 3000);
+//app.use(app.router);
+
+load('models').then('controllers').then('routes').into(app);
+
+http.createServer(app).listen(app.get('port'), function(){
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
-app.listen(3000);
+/* app.get("/user", function(req, res) {
+    res.send("hello world! " + req.query.id + " e " + req.query.nome);
+});
+ */
+
 
 
