@@ -1,13 +1,24 @@
- var MongoClient = require('mongodb').MongoClient;
+var MongoClient = require('mongodb').MongoClient;
 
 var servidor = 'mongodb://localhost:27017/NodeFinancas';
 
-MongoClient.connect(servidor, function(erro, db){
-    if(erro){
-        console.log("Erro ao estabelecer conexão " + erro);
-    } else {
-        console.log("Conexão estabelecida com sucesso!");
+function conectaBanco(){
+
+    banco = {
+        conecta: function(){
+            
+        }
     }
+    MongoClient.connect(servidor, function(erro, db){
+        if(erro){
+            console.log("Erro ao estabelecer conexão " + erro);
+        } else {
+            console.log("Conexão estabelecida com sucesso!");
+        }
+    });        
+}
+
+exports.conectaBanco = conecte;
 
 /*  var topico = {
         titulo : "Erro na compilação",
@@ -115,8 +126,7 @@ MongoClient.connect(servidor, function(erro, db){
         }, this);        
     });       
 */
-    db.close;
-}); 
+
 
 
 var express = require('express');
