@@ -12,6 +12,7 @@
     "mongodb": "^2.2.31",
     "express": "4.15.5",
     "express-load": "1.1.16",
-    "mongoose": "4.11.13"
+    "mongoose": "4.11.13",
+    "body-parser": "1.18.2"
   }
 }

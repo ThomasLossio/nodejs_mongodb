@@ -7,7 +7,7 @@ module.exports = function(app) {
     
   });
 
-  app.get("/financas/add", financasModel.adicionar);
+  app.post("/financas/adicionar", financasModel.adicionar);
 
   app.get("/financas/listar", financasModel.listar);
 }
