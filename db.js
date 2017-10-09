@@ -7,6 +7,7 @@ var financaSchema = new mongoose.Schema({
     item: String,
     valor: Number,
     observacoes: String
+    //data de criação, 
 }, { collection: 'financacollection' }
 );
 
