@@ -9,22 +9,22 @@ module.exports = function(app){
       console.log(req.body);
       var financaItem = req.body.item;
       var financaValor = req.body.valor;
-      var financaObservacoes = req.body.observacoes
-  
+      var financaObservacoes = req.body.observacoes;
       var Financas = db.Mongoose.model('financacollection', db.FinancaSchema, 'financacollection');
-      if (financaItem != '' && financaValor != '' && financaObservacoes != '') {
-        var financa = new Financas({ item: financaItem, valor: financaValor, observacoes: financaObservacoes });        
-      }
+
+      var financa = new Financas({ item: financaItem, valor: financaValor, observacoes: financaObservacoes });        
+      
       financa.save(function (err) {
           if (err) {
               console.log("Error! " + err.message);
               res.sendStatus(500);
-          }
-          else {
+          } else {
               console.log("Post saved");
-              res.sendStatus(200);
+              res.sendStatus(201);
           }
-      });      
+      });
+        
+      
     
     },
 
@@ -37,6 +37,33 @@ module.exports = function(app){
             res.json({ "financalist": docs });
       });
     
+    },
+
+    alterar: function(req, res) {
+      
+      var Financas = db.Mongoose.model('financacollection', db.FinancaSchema, 'financacollection');
+      Financas.findOneAndUpdate({ _id: req.params.id }, req.body, { upsert: false }, function (err, doc) {
+          if (err) {
+              res.status(500).json({ error: err.message });
+              res.end();
+              return;
+          }
+          res.sendStatus(200);
+          res.end();
+      });      
+    },
+
+    deletar: function(req, res) {
+      var Financa = db.Mongoose.model('financacollection', db.FinancaSchema, 'financacollection');
+      Financa.find({ _id: req.params.id }).remove(function (err) {
+          if (err) {
+              res.status(500).json({ error: err.message });
+              res.end();
+              return;
+          }
+          res.sendStatus(200);
+          res.end();
+      });      
     }
     
   }
